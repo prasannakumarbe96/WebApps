@@ -1,0 +1,56 @@
+﻿
+
+
+
+@model BookServices.Book;
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateBook" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookID" class="control-label"></label>
+                <input asp-for="BookID" class="form-control"  readonly />
+                <span asp-validation-for="BookID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control"  />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookPublisherName" class="control-label"></label>
+                <input asp-for="BookPublisherName" class="form-control" />
+                <span asp-validation-for="BookPublisherName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookPrice" class="control-label"></label>
+                <input asp-for="BookPrice" class="form-control"  />
+                <span asp-validation-for="BookPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@{
+    var ures = (bool)ViewData["Res"];
+    @if (ures)
+    {
+        <h1>Updated SuccessFully..!</h1>
+    }
+   
+}
+        <div>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+        </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

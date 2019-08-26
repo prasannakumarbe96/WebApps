@@ -1,0 +1,28 @@
+﻿@model BookServices.Book
+@using BookServices;
+<div class="row">
+    <div class="col-md-4">
+        <form action="GetBookById" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">BookID</label>
+                <input name="BookID" class="form-control" />
+                <span asp-validation-for="BookID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+@{ 
+    Book bk = (Book)ViewData["GetBook"];
+    @if(bk==null)
+    {
+<h1>Not Found..!</h1>
+    }
+}
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to Home</a>
+</div>

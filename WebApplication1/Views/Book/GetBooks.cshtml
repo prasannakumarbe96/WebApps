@@ -1,0 +1,44 @@
+﻿@using BookServices;
+@{
+    List<Book> data =(List<Book>) ViewData["listbooks"];
+
+    
+    @if (data.Count!=0)
+    {
+
+<table border="1" cellspacing="1">
+    <caption>Book Info</caption>
+    <thead>
+        <tr>
+            <th>BookID</th>
+            <th>BookName</th>
+            <th>PublisherName</th>
+            <th>BookPrice</th>
+        </tr>
+    </thead>
+    @foreach (Book book in data)
+    {
+        <tbody>
+            <tr>
+                <td>@book.BookID</td>
+                <td>@book.BookName</td>
+                <td>@book.BookPublisherName</td>
+                <td>@book.BookPrice</td>
+            </tr>
+        </tbody>
+    }
+    </table>
+   
+
+    }
+    
+    else
+    {
+        <h1>Data is Empty..!</h1>
+    }
+
+    }
+        <div>
+            <a asp-controller="Home" asp-action="Index">Back to Home</a>
+        </div>
+
